@@ -19,7 +19,7 @@ def normalize(df):
 
 # change working directory
 
-os.chdir("C:\\Users\\ppaudyal\\Google Drive\\School\\Research\\Projects\\Hand\\Data\\Hold\\10SignsBothHands")
+os.chdir("/Users/hayden/workspace/GameTheoryforPipelining/10SignsBothHands")
 col_names = ["Index", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9",
              "player10", "player11", "player12", "player13", "player14", "player15", "player16", "player17",
              "player1.1", "player2.1", "player3.1", "player4.1", "player5.1", "player6.1", "player7.1", "player8.1",
@@ -27,6 +27,8 @@ col_names = ["Index", "player1", "player2", "player3", "player4", "player5", "pl
              "player16.1", "player17.1"]
 
 print(col_names)
+coalitions_total_data = {}
+
 
 for file in os.listdir("."):
     # print(file)
@@ -69,20 +71,28 @@ for file in os.listdir("."):
                 temp = []
                 for n in subset:
                     temp = temp + player_vector[n]
-
+                if(str(subset) in coalitions_total_data):
+                	coalitions_total_data[str(subset)] = []
                 new_column_names = list(range(1, len(temp) + 1))
                 new_column_names.append("class")
+                
+                if(not('class' in coalitions_total_data[str(subset)][0])):
+                	coalitions_total_data[str(subset)].append[new_column_names]
+                
                 temp.append(file.split("_")[0])
+                
+                coalitions_total_data[str(subset)].append[temp]
+                
                 # print(type(subset))
                 # print(new_column_names)
                 # print(temp)
                 # print(len(temp))
                 # print( "coalitions\\coalitions"+str(subset)+".csv" )
 
-                t = [new_column_names, temp]
-                with open("coalitions\\coalitions" + str(subset) + ".csv", "w", newline="") as f:
-                    writer = csv.writer(f, delimiter=",")
-                    writer.writerows(t)
+                
+               #  with open("../coalitions/coalitions" + str(subset) + ".csv", "w", newline="") as f:
+#                     writer = csv.writer(f, delimiter=",")
+#                     writer.writerows(t)
 
     # print("player"+str(i))
     # print(x)
@@ -109,12 +119,16 @@ for file in os.listdir("."):
     # lumns
 
     # file_frame = pandas.read_csv()
-    break
+#     break
     # define headers
     # read without headers into a matrix
 
 
-
+for x in coalitions_total_data:
+	print(x)
+# with open("coalitions\\coalitions" + str(subset) + ".csv", "w", newline="") as f:
+# 	writer = csv.writer(f, delimiter=",")
+# 	writer.writerows(t)
     # define the coalitions
     # create a csv file in the format the naive bayes wants
 
