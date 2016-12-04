@@ -41,7 +41,7 @@ def define_player(player_vector, player_number):
     return player_vector
 
 # Working Directory
-os.chdir("Path to data")
+os.chdir("C:\\Users\\ppaudyal\\workspace\\GameTheoryforPipelining\\Scripts\\10SignsBothHands\\")
 
 # Global Variables
 col_names = ["Index", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9",
