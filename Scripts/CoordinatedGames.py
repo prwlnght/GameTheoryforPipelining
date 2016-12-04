@@ -41,7 +41,7 @@ def define_player(player_vector, player_number):
     return player_vector
 
 # Working Directory
-os.chdir("C:\\Users\\ppaudyal\\workspace\\GameTheoryforPipelining\\Scripts\\10SignsBothHands\\")
+os.chdir("C:\\Users\\ppaudyal\\workspace\\GameTheoryforPipelining\\Scripts\\HealthSigns_01232016_Prajwal\\")
 
 # Global Variables
 col_names = ["Index", "player1", "player2", "player3", "player4", "player5", "player6", "player7", "player8", "player9",
@@ -125,6 +125,6 @@ for file in os.listdir("."):
 # For Each coalitions in coalitions_total_data 
 for coalitions in coalitions_total_data:
     # write to coalition file.
-    with open("..\\coalitions\\coalitions" + coalitions + ".csv", "w", newline="") as f:
+    with open("..\\coalitions_health_prajwal\\coalitions" + coalitions + ".csv", "w", newline="") as f:
         writer = csv.writer(f, delimiter=",")
         writer.writerows(coalitions_total_data[coalitions])
